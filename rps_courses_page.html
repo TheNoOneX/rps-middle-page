@@ -1,0 +1,250 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.pg{font-family:'Inter',var(--font-sans),sans-serif;background:linear-gradient(135deg,#0a1628 0%,#0f2044 40%,#12336e 100%);min-height:100vh;width:100%;padding:2rem 1rem 3rem;}
+.hdr{text-align:center;padding:1.5rem 0 2rem;}
+.hdr-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,235,0.2);border:1px solid rgba(59,130,246,0.35);color:#93c5fd;font-size:11px;font-weight:600;padding:4px 14px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem;}
+.hdr h1{font-size:clamp(22px,5vw,32px);font-weight:800;color:#fff;margin-bottom:.4rem;letter-spacing:-.5px;}
+.hdr h1 span{color:#60a5fa;}
+.hdr p{font-size:13.5px;color:#94a3b8;max-width:480px;margin:0 auto;}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,#3b82f6,transparent);margin:.8rem auto 0;border-radius:2px;}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:2rem;}
+.ftab{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:#94a3b8;font-size:12px;font-weight:600;padding:6px 16px;border-radius:100px;cursor:pointer;transition:all .18s;letter-spacing:.02em;}
+.ftab.active,.ftab:hover{background:rgba(37,99,235,0.3);border-color:rgba(59,130,246,0.5);color:#93c5fd;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#475569;margin:0 0 .75rem .25rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:2.5rem;}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;transition:transform .2s,border-color .2s,background .2s;}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.1);}
+.img-slot{width:100%;height:140px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden;}
+.img-slot i{font-size:32px;opacity:.25;}
+.img-slot .img-label{font-size:10.5px;color:rgba(255,255,255,0.2);letter-spacing:.04em;}
+.img-slot img{width:100%;height:100%;object-fit:cover;display:none;}
+.card-body{padding:1rem 1.1rem 1.1rem;}
+.cat-pill{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.04em;margin-bottom:.6rem;}
+.pill-comp{background:rgba(37,99,235,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);}
+.pill-univ{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(192,132,252,0.25);}
+.pill-skill{background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.22);}
+.pill-acct{background:rgba(251,146,60,0.18);color:#fb923c;border:1px solid rgba(251,146,60,0.28);}
+.card-title{font-size:14.5px;font-weight:700;color:#f1f5f9;line-height:1.3;margin-bottom:.45rem;}
+.card-desc{font-size:12px;color:#94a3b8;line-height:1.6;margin-bottom:.85rem;}
+.card-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.meta-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#64748b;}
+.meta-item i{font-size:13px;}
+.card-enq{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:5px 13px;border-radius:100px;background:rgba(37,99,235,0.22);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);cursor:pointer;transition:filter .15s;text-decoration:none;margin-top:.75rem;}
+.card-enq:hover{filter:brightness(1.2);}
+.card-enq.green{background:rgba(34,197,94,0.18);color:#4ade80;border-color:rgba(74,222,128,0.28);}
+.hidden{display:none!important;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:2.5rem;}
+.stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:.9rem 1rem;text-align:center;}
+.stat-num{font-size:22px;font-weight:800;color:#60a5fa;line-height:1;}
+.stat-lbl{font-size:11px;color:#64748b;margin-top:4px;letter-spacing:.03em;}
+@media(max-width:480px){.grid{grid-template-columns:1fr;}.pg{padding:1.5rem .75rem 2.5rem;}}
+</style>
+
+<h2 class="sr-only" style="position:absolute;left:-9999px;">RPS Group of Education Bijapur — courses catalogue</h2>
+
+<div class="pg">
+
+  <div class="hdr">
+    <div class="hdr-badge"><i class="ti ti-books" aria-hidden="true" style="font-size:12px;"></i> Course Catalogue</div>
+    <h1>Our <span>Courses</span></h1>
+    <p>Certified computer programmes &amp; university degrees — all under one roof in Bijapur</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-lbl">Courses offered</div></div>
+    <div class="stat"><div class="stat-num">5000+</div><div class="stat-lbl">Students enrolled</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years of experience</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Govt. certified</div></div>
+  </div>
+
+  <div class="filter-row">
+    <div class="ftab active" onclick="filter('all',this)">All Courses</div>
+    <div class="ftab" onclick="filter('comp',this)">Computer Diplomas</div>
+    <div class="ftab" onclick="filter('skill',this)">Skill &amp; Short-term</div>
+    <div class="ftab" onclick="filter('acct',this)">Accounting</div>
+    <div class="ftab" onclick="filter('univ',this)">University Degrees</div>
+  </div>
+
+  <div class="section-label">Computer diploma programmes</div>
+  <div class="grid" id="cards">
+
+    <div class="card" data-cat="comp">
+      <div class="img-slot">
+        <i class="ti ti-device-desktop" style="color:#60a5fa;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-comp"><i class="ti ti-certificate" style="font-size:11px;" aria-hidden="true"></i> Diploma</span>
+        <div class="card-title">DCA — Diploma in Computer Applications</div>
+        <div class="card-desc">A foundational 1-year diploma covering MS Office, internet, basic programming, and operating systems. Ideal for beginners entering the digital workforce.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 1 year</span>
+          <span class="meta-item"><i class="ti ti-award" aria-hidden="true"></i> Govt. certified</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+DCA+course" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="comp">
+      <div class="img-slot">
+        <i class="ti ti-cpu" style="color:#60a5fa;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-comp"><i class="ti ti-certificate" style="font-size:11px;" aria-hidden="true"></i> Diploma</span>
+        <div class="card-title">PGDCA — Post Graduate Diploma in Computer Applications</div>
+        <div class="card-desc">A postgraduate-level 1-year diploma for graduates. Covers advanced programming, database management, web development, and software engineering concepts.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 1 year</span>
+          <span class="meta-item"><i class="ti ti-user-check" aria-hidden="true"></i> Graduates only</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+PGDCA+course" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    
+    
+
+    <div class="card" data-cat="acct">
+      <div class="img-slot">
+        <i class="ti ti-receipt" style="color:#fb923c;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-acct"><i class="ti ti-calculator" style="font-size:11px;" aria-hidden="true"></i> Accounting</span>
+        <div class="card-title">Tally Prime with GST</div>
+        <div class="card-desc">Industry-standard accounting software training covering ledgers, vouchers, GST filing, payroll, TDS, and MIS reports. Highly demanded by businesses and CA offices.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3–6 months</span>
+          <span class="meta-item"><i class="ti ti-trending-up" aria-hidden="true"></i> Job-ready</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+Tally+Prime+GST+course" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="skill">
+      <div class="img-slot">
+        <i class="ti ti-world-www" style="color:#4ade80;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-skill"><i class="ti ti-bolt" style="font-size:11px;" aria-hidden="true"></i> Short-term</span>
+        <div class="card-title">Web Design — HTML, CSS &amp; JavaScript</div>
+        <div class="card-desc">Build responsive websites from scratch. This hands-on course covers modern HTML5, CSS3, and introductory JavaScript to prepare students for web development roles.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3 months</span>
+          <span class="meta-item"><i class="ti ti-device-laptop" aria-hidden="true"></i> Practical labs</span>
+        </div>
+        <a class="card-enq card-enq green" href="https://wa.me/916260055475?text=I+want+to+enquire+about+Web+Design+course" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="skill">
+      <div class="img-slot">
+        <i class="ti ti-server" style="color:#4ade80;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-skill"><i class="ti ti-bolt" style="font-size:11px;" aria-hidden="true"></i> Short-term</span>
+        <div class="card-title">Hardware &amp; Networking</div>
+        <div class="card-desc">Learn PC assembly, troubleshooting, LAN setup, and basic networking concepts. Includes hands-on practice with real hardware and networking equipment.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 6 months</span>
+          <span class="meta-item"><i class="ti ti-tool" aria-hidden="true"></i> Hands-on</span>
+        </div>
+        <a class="card-enq card-enq green" href="https://wa.me/91XXXXXXXXXX?text=I+want+to+enquire+about+Hardware+Networking+course" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="univ">
+      <div class="img-slot">
+        <i class="ti ti-school" style="color:#c084fc;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-univ"><i class="ti ti-building-community" style="font-size:11px;" aria-hidden="true"></i> University</span>
+        <div class="card-title">BA — Bachelor of Arts</div>
+        <div class="card-desc">A 3-year undergraduate degree in humanities and social sciences. Subjects include History, Political Science, Sociology, Kannada, and English. Affiliated to a recognised university.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3 years</span>
+          <span class="meta-item"><i class="ti ti-building" aria-hidden="true"></i> University affiliated</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/91XXXXXXXXXX?text=I+want+to+enquire+about+BA+degree" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="univ">
+      <div class="img-slot">
+        <i class="ti ti-microscope" style="color:#c084fc;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-univ"><i class="ti ti-building-community" style="font-size:11px;" aria-hidden="true"></i> University</span>
+        <div class="card-title">BSc — Bachelor of Science</div>
+        <div class="card-desc">A 3-year science degree with combinations such as PCM (Physics, Chemistry, Math) or CBZ (Chemistry, Botany, Zoology). Builds a strong foundation for technical and medical careers.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3 years</span>
+          <span class="meta-item"><i class="ti ti-flask" aria-hidden="true"></i> Science stream</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+BSc+degree" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="univ">
+      <div class="img-slot">
+        <i class="ti ti-briefcase" style="color:#c084fc;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-univ"><i class="ti ti-building-community" style="font-size:11px;" aria-hidden="true"></i> University</span>
+        <div class="card-title">BCom — Bachelor of Commerce</div>
+        <div class="card-desc">A 3-year commerce degree covering accounting, business law, economics, taxation, and financial management. Perfect base for CA, MBA, or government finance roles.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3 years</span>
+          <span class="meta-item"><i class="ti ti-coin" aria-hidden="true"></i> Commerce stream</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+BCom+degree" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="univ">
+      <div class="img-slot">
+        <i class="ti ti-desktop-analytics" style="color:#c084fc;" aria-hidden="true"></i>
+        <span class="img-label">Add course image here</span>
+      </div>
+      <div class="card-body">
+        <span class="cat-pill pill-univ"><i class="ti ti-building-community" style="font-size:11px;" aria-hidden="true"></i> University</span>
+        <div class="card-title">BCA — Bachelor of Computer Applications</div>
+        <div class="card-desc">A 3-year degree combining programming, databases, networking, and software development. A direct pathway to IT sector jobs or MCA/MSc (CS) postgraduate studies.</div>
+        <div class="card-meta">
+          <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i> 3 years</span>
+          <span class="meta-item"><i class="ti ti-code" aria-hidden="true"></i> IT focused</span>
+        </div>
+        <a class="card-enq" href="https://wa.me/916260055475?text=I+want+to+enquire+about+BCA+degree" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enquire</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;padding:1.5rem 0 0;">
+    <p style="font-size:12px;color:#475569;margin-bottom:.6rem;">Can't find your course? Contact us directly.</p>
+    <a href="https://wa.me/916260055475?text=I+want+to+know+more+about+admissions+at+RPS+Group+of+Education+Bijapur" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:8px 20px;border-radius:100px;background:rgba(34,197,94,0.2);color:#4ade80;border:1px solid rgba(74,222,128,0.3);text-decoration:none;">
+      <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat with us on WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<script>
+function filter(cat, el){
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat) c.classList.remove('hidden');
+    else c.classList.add('hidden');
+  });
+}
+</script>
