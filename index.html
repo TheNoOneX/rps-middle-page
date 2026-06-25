@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS Group of Education Bijapur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#0f172a;
+    --secondary:#f59e0b;
+    --light:#ffffff;
+    --bg:#f8fafc;
+    --card:#ffffffcc;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:#222;
+    overflow-x:hidden;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.lang-switch{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    display:flex;
+}
+
+.lang-switch button{
+    border:none;
+    padding:8px 14px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.lang-switch button.active{
+    background:var(--secondary);
+    color:white;
+}
+
+.logo-box{
+    width:110px;
+    height:110px;
+    /* border:3px dashed rgba(255,255,255,.5); */
+    margin:30px auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+}
+
+.logo-box img{
+    height: 160px;
+    width: 160px;   
+}
+
+
+
+.hero h1{
+    font-size:28px;
+    line-height:1.2;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:.9;
+    margin-bottom:25px;
+}
+
+.action-buttons{
+    display:grid;
+    gap:12px;
+}
+
+.action-buttons a{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    padding:14px;
+    border-radius:15px;
+    font-weight:600;
+}
+
+.section{
+    padding:25px 15px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:24px;
+    color:var(--primary);
+}
+
+.grid{
+    display:grid;
+    gap:15px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.card .icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.stat-card{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+}
+
+.counter{
+    font-size:30px;
+    font-weight:800;
+    color:var(--secondary);
+}
+
+.course-card{
+    background:white;
+    padding:15px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.course-card h3{
+    color:var(--primary);
+    margin-bottom:8px;
+}
+
+.gallery{
+    position:relative;
+    height:230px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:.8s;
+    background:#d1d5db;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:700;
+    object-fit: contain;
+}
+
+.slide img{
+   height: 350px;
+   width: 400px;
+   object-fit: contain;
+    
+
+}
+
+
+.slide.active{
+    opacity:1;
+}
+
+.contact-box{
+    background:linear-gradient(135deg,#f59e0b,#fbbf24);
+    color:white;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.contact-box a{
+    display:inline-block;
+    margin-top:12px;
+    background:white;
+    color:#111;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.whatsapp-float{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    z-index:999;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    box-shadow:0 -3px 15px rgba(0,0,0,.12);
+    z-index:999;
+}
+
+.bottom-nav a{
+    text-decoration:none;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:600;
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:30px 15px 100px;
+    color:#64748b;
+}
+
+@media(min-width:768px){
+    body{
+        max-width:500px;
+        margin:auto;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="lang-switch">
+<button class="active" onclick="changeLanguage('en',this)">EN</button>
+<button onclick="changeLanguage('hi',this)">हिन्दी</button>
+</div>
+
+<div class="logo-box">
+<img src="newlogowith-white-bg.png" alt="">
+</div>
+
+<h1 data-en="RPS GROUP OF EDUCATION BIJAPUR"
+    data-hi="आरपीएस ग्रुप ऑफ एजुकेशन बीजापुर">
+RPS GROUP OF EDUCATION BIJAPUR
+</h1>
+
+<p data-en="Building Careers Through Quality Education"
+   data-hi="गुणवत्तापूर्ण शिक्षा के माध्यम से करियर निर्माण">
+Building Careers Through Quality Education
+</p>
+
+<div class="action-buttons">
+<a href="https://maps.app.goo.gl/x2PnKBFDiWDqhJBn7" data-en="📍 Get Location" data-hi="📍 स्थान देखें">📍 Get Location</a>
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." data-en="💬 Contact Us" data-hi="💬 संपर्क करें">💬 Contact Us</a>
+<a href="new_course.html" data-en="📚 Courses" data-hi="📚 पाठ्यक्रम">📚 Courses</a>
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="Why Choose RPS?"
+data-hi="आरपीएस क्यों चुनें?">
+Why Choose RPS?
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🎓</div>
+<div data-en="Certified Courses" data-hi="प्रमाणित पाठ्यक्रम">Certified Courses</div>
+</div>
+
+<div class="card">
+<div class="icon">💼</div>
+<div data-en="100% Job Assistance" data-hi="100% रोजगार सहायता">100% Job Assistance</div>
+</div>
+
+<div class="card">
+<div class="icon">👨‍🏫</div>
+<div data-en="Expert Faculty" data-hi="विशेषज्ञ शिक्षक">Expert Faculty</div>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<div data-en="Modern Computer Lab" data-hi="आधुनिक कंप्यूटर लैब">Modern Computer Lab</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="Our Achievements"
+data-hi="हमारी उपलब्धियाँ">
+Our Achievements
+</h2>
+
+<div class="stats">
+
+<div class="stat-card">
+<div class="counter" data-target="5000">0</div>
+<div data-en="Students Trained" data-hi="प्रशिक्षित विद्यार्थी">Students Trained</div>
+</div>
+
+<div class="stat-card">
+<div class="counter" data-target="25">0</div>
+<div data-en="Courses Available" data-hi="उपलब्ध पाठ्यक्रम">Courses Available</div>
+</div>
+
+<div class="stat-card">
+<div class="counter" data-target="10">0</div>
+<div data-en="Years Experience" data-hi="वर्षों का अनुभव">Years Experience</div>
+</div>
+
+<div class="stat-card">
+<div class="counter" data-target="100">0</div>
+<div data-en="Job Assistance" data-hi="रोजगार सहायता">Job Assistance</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="Popular Courses"
+data-hi="लोकप्रिय पाठ्यक्रम">
+Popular Courses
+</h2>
+
+<div class="grid">
+
+<div class="course-card">
+<h3>DCA</h3>
+<p>Diploma In Computer Applications</p>
+</div>
+
+<div class="course-card">
+<h3>PGDCA</h3>
+<p>Post Graduate Diploma In Computer Applications</p>
+</div>
+
+<div class="course-card">
+<h3>Tally Prime</h3>
+<p>Accounting & GST</p>
+</div>
+
+<div class="course-card">
+<h3>Python</h3>
+<p>Programming & Projects</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="Photo Gallery"
+data-hi="फोटो गैलरी">
+Photo Gallery
+</h2>
+
+<div class="gallery">
+
+<div class="slide active"><img src="img1.jpeg" alt=""></div>
+<div class="slide"><img src="img2.jpeg" alt=""></div>
+<div class="slide"><img src="img3.jpeg" alt=""></div>
+<div class="slide"><img src="img4.jpeg" alt=""></div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="contact-box">
+
+<h2
+data-en="Admissions Open 2026"
+data-hi="प्रवेश प्रारंभ 2026">
+Admissions Open 2026
+</h2>
+
+<p
+data-en="Join RPS Group of Education and Build Your Future."
+data-hi="आरपीएस ग्रुप ऑफ एजुकेशन से जुड़ें और अपना भविष्य बनाएं।">
+Join RPS Group of Education and Build Your Future.
+</p>
+
+<a href="#"
+data-en="Contact Now"
+data-hi="अभी संपर्क करें">
+Contact Now </a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 RPS Group of Education Bijapur
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur."">
+💬
+</a>
+
+<div class="bottom-nav">
+<a href="#">📍<br>Location</a>
+<a href="#">💬<br>WhatsApp</a>
+<a href="new_course.html">📚<br>Courses</a>
+</div>
+
+<script>
+
+function changeLanguage(lang,btn){
+
+document.querySelectorAll('.lang-switch button')
+.forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+document.querySelectorAll('[data-en]').forEach(el=>{
+el.textContent=el.dataset[lang];
+});
+
+localStorage.setItem('rps_lang',lang);
+}
+
+window.addEventListener('load',()=>{
+
+const saved=localStorage.getItem('rps_lang');
+
+if(saved==='hi'){
+document.querySelectorAll('.lang-switch button')[1].click();
+}
+
+});
+
+const counters=document.querySelectorAll('.counter');
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
+const target=+counter.dataset.target;
+
+let count=0;
+
+const speed=target/100;
+
+const update=()=>{
+
+count+=speed;
+
+if(count<target){
+counter.innerText=Math.floor(count)+"+";
+requestAnimationFrame(update);
+}else{
+counter.innerText=target+"+";
+}
+};
+
+update();
+observer.unobserve(counter);
+
+}
+});
+});
+
+counters.forEach(counter=>observer.observe(counter));
+
+const slides=document.querySelectorAll('.slide');
+let current=0;
+
+setInterval(()=>{
+slides[current].classList.remove('active');
+current=(current+1)%slides.length;
+slides[current].classList.add('active');
+},3000);
+
+</script>
+
+</body>
+</html>
