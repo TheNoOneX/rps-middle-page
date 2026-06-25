@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS Group of Education - Courses</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#0f172a;
+    --secondary:#f59e0b;
+    --light:#ffffff;
+    --bg:#f8fafc;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#222;
+    overflow-x:hidden;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:25px 15px 35px;
+    text-align:center;
+    position:relative;
+}
+
+.back-btn{
+    position:absolute;
+    left:15px;
+    top:15px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.15);
+    padding:10px 14px;
+    border-radius:12px;
+}
+
+.lang-switch{
+    position:absolute;
+    right:15px;
+    top:15px;
+    display:flex;
+    border-radius:30px;
+    overflow:hidden;
+    background:white;
+}
+
+.lang-switch button{
+    border:none;
+    padding:8px 14px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.lang-switch button.active{
+    background:var(--secondary);
+    color:white;
+}
+
+.hero h1{
+    margin-top:50px;
+    font-size:28px;
+    line-height:1.2;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.section{
+    padding:22px 15px;
+}
+
+.section-title{
+    color:var(--primary);
+    margin-bottom:18px;
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+}
+
+.course-card{
+    background:white;
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.course-card h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.badge{
+    display:inline-block;
+    background:#fff7ed;
+    color:#c2410c;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.course-card ul{
+    padding-left:18px;
+    margin-top:10px;
+}
+
+.course-card li{
+    margin-bottom:6px;
+}
+
+.enquire-btn{
+    display:block;
+    margin-top:15px;
+    text-align:center;
+    text-decoration:none;
+    background:var(--secondary);
+    color:white;
+    padding:12px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.university-grid{
+    display:grid;
+    gap:15px;
+}
+
+.uni-card{
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.cta{
+    margin:20px 15px 100px;
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#f59e0b,#fbbf24);
+    text-align:center;
+    color:white;
+}
+
+.cta a{
+    display:inline-block;
+    margin-top:15px;
+    background:white;
+    color:#111;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    left:0;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    box-shadow:0 -3px 15px rgba(0,0,0,.12);
+}
+
+.bottom-nav a{
+    text-decoration:none;
+    color:var(--primary);
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+}
+
+@media(min-width:768px){
+    body{
+        max-width:500px;
+        margin:auto;
+    }
+
+    .bottom-nav{
+        max-width:500px;
+        left:50%;
+        transform:translateX(-50%);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<div class="lang-switch">
+<button class="active" onclick="changeLanguage('en',this)">EN</button>
+<button onclick="changeLanguage('hi',this)">हिन्दी</button>
+</div>
+
+<h1
+data-en="Our Courses"
+data-hi="हमारे पाठ्यक्रम">
+Our Courses
+</h1>
+
+<p
+data-en="Professional Computer & University Education"
+data-hi="व्यावसायिक कंप्यूटर एवं विश्वविद्यालय शिक्षा">
+Professional Computer & University Education
+</p>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="Computer Courses"
+data-hi="कंप्यूटर पाठ्यक्रम">
+Computer Courses
+</h2>
+
+<div class="course-card">
+<div class="badge">DCA</div>
+<h3>Diploma in Computer Applications</h3>
+
+<p data-en="Duration: 6 Months"
+   data-hi="अवधि: 6 माह">
+Duration: 6 Months
+</p>
+
+<ul>
+<li>MS Office</li>
+<li>Internet Applications</li>
+<li>Typing Skills</li>
+<li>Computer Fundamentals</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+<div class="course-card">
+<div class="badge">PGDCA</div>
+<h3>Post Graduate Diploma in Computer Applications</h3>
+
+<p data-en="Duration: 1 Year"
+   data-hi="अवधि: 1 वर्ष">
+Duration: 1 Year
+</p>
+
+<ul>
+<li>C Programming</li>
+<li>DBMS</li>
+<li>Web Technology</li>
+<li>Software Development</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+<div class="course-card">
+<div class="badge">Tally Prime</div>
+
+<h3>Tally with GST</h3>
+
+<p data-en="Duration: 3 Months"
+   data-hi="अवधि: 3 माह">
+Duration: 3 Months
+</p>
+
+<ul>
+<li>Accounting</li>
+<li>GST</li>
+<li>Inventory</li>
+<li>Payroll</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+<div class="course-card">
+<div class="badge">PYTHON</div>
+
+<h3>Python Programming</h3>
+
+<p data-en="Duration: 3-6 Months"
+   data-hi="अवधि: 3-6 माह">
+Duration: 3-6 Months
+</p>
+
+<ul>
+<li>Python Basics</li>
+<li>OOP</li>
+<li>Projects</li>
+<li>Automation</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+<div class="course-card">
+<div class="badge">WEB</div>
+
+<h3>Web Designing</h3>
+
+<p data-en="Duration: 3 Months"
+   data-hi="अवधि: 3 माह">
+Duration: 3 Months
+</p>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Responsive Design</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+<div class="course-card">
+<div class="badge">HARDWARE</div>
+
+<h3>Hardware & Networking</h3>
+
+<p data-en="Duration: 6 Months"
+   data-hi="अवधि: 6 माह">
+Duration: 6 Months
+</p>
+
+<ul>
+<li>PC Assembly</li>
+<li>Troubleshooting</li>
+<li>Networking</li>
+<li>Router Configuration</li>
+</ul>
+
+<a href="https://wa.me/916260055475?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20courses%20at%20RPS%20Group%20of%20Education%20Bijapur." class="enquire-btn"
+data-en="Enquire Now"
+data-hi="अभी पूछताछ करें">
+Enquire Now </a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title"
+data-en="University Courses"
+data-hi="विश्वविद्यालय पाठ्यक्रम">
+University Courses
+</h2>
+
+<div class="university-grid">
+
+<div class="uni-card">
+<h3>BA</h3>
+<p data-en="Bachelor of Arts"
+data-hi="बैचलर ऑफ आर्ट्स">
+Bachelor of Arts
+</p>
+</div>
+
+
+<div class="uni-card">
+<h3>BCom</h3>
+<p data-en="Bachelor of Commerce"
+data-hi="बैचलर ऑफ कॉमर्स">
+Bachelor of Commerce
+</p>
+</div>
+
+<div class="uni-card">
+<h3>MA</h3>
+<p data-en="Master of Arts"
+data-hi="मास्टर ऑफ आर्ट्स">
+Master of Arts
+</p>
+</div>
+
+<div class="uni-card">
+<h3>MSc</h3>
+<p data-en="Master of Science"
+data-hi="मास्टर ऑफ साइंस">
+Master of Science
+</p>
+</div>
+
+<div class="uni-card">
+<h3>MCom</h3>
+<p data-en="Master of Commerce"
+data-hi="मास्टर ऑफ कॉमर्स">
+Master of Commerce
+</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="cta">
+
+<h2
+data-en="Admissions Open 2026"
+data-hi="प्रवेश प्रारंभ 2026">
+Admissions Open 2026
+</h2>
+
+<p
+data-en="Start your journey with RPS Group of Education."
+data-hi="आरपीएस ग्रुप ऑफ एजुकेशन के साथ अपने भविष्य की शुरुआत करें।">
+Start your journey with RPS Group of Education.
+</p>
+
+<a href="#"
+data-en="Contact Us"
+data-hi="संपर्क करें">
+Contact Us </a>
+
+</div>
+
+<div class="bottom-nav">
+<a href="index.html">🏠<br>Home</a>
+<a href="#">💬<br>WhatsApp</a>
+<a href="#top">📚<br>Courses</a>
+</div>
+
+<script>
+
+function changeLanguage(lang,btn){
+
+document.querySelectorAll('.lang-switch button')
+.forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+document.querySelectorAll('[data-en]').forEach(el=>{
+el.textContent=el.dataset[lang];
+});
+
+localStorage.setItem('rps_lang',lang);
+}
+
+window.addEventListener('load',()=>{
+
+const saved=localStorage.getItem('rps_lang');
+
+if(saved==='hi'){
+document.querySelectorAll('.lang-switch button')[1].click();
+}
+
+});
+
+</script>
+
+</body>
+</html>
